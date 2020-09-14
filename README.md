@@ -62,3 +62,67 @@ The following switches can be used in combination
 * -laps checks if LAPS is installed
 * -authpolsilos checks for existenece of authentication policies and silos
 * -all runs all checks, e.g. AdAudit.ps1 -all
+
+
+
+Что он делает
+Информация об устройстве
+Get-HostDetails
+
+Аудит домена
+Get-MachineAccountQuota
+Get-SMB1Support
+Get-FunctionalLevel
+Get-DCsNotOwnedByDA
+
+Аудит доверия доменов
+Get-DomainTrusts
+
+Аудит учетных записей пользователей
+Get-InactiveAccounts
+Get-DisabledAccounts
+Get-AdminAccountChecks
+Get-NULLSessions
+Get-AdminSDHolders
+Get-ProtectedUsers
+
+Аудит информации о паролях
+Get-AccountPassDontExpire
+Get-UserPasswordNotChangedRecently
+Get-PasswordPolicy
+
+Дампы NTDS.dit
+Get-NTDSdit
+
+Аудит объектов
+Get-OldBoxes
+
+Аудит GPO (и проверка SYSVOL паролей)
+Get-GPOtoFile
+Get-GPOsPerOU
+Get-SYSVOLXMLS
+
+Проверьте общие права группы AD
+Get-OUPerms
+
+Проверьте наличие LAPS в домене
+Get-LAPSStatus
+
+Проверьте наличие политик и хранилищ аутентификации
+Get-AuthenticationPoliciesAndSilos
+
+Аргументы запуска
+Следующие флаги могут использоваться в комбинации запуска скрипта
+
+-hostdetails извлекает имя хоста и другую полезную информацию аудита
+-domainaudit извлекает информацию об AD, такую как функциональный уровень
+-trusts извлекает информацию о любых доверительных отношениях с доменом
+-accounts определяет проблемы учетной записи, такие как истек, отключен, и т. д …
+-passwordpolicy возвращает информацию о политике паролей
+-ntds выводит файл NTDS.dit с помощью ntdsutil
+-oldbox идентифицирует устаревшие ОС, такие как XP / 2003, присоединенные к домену
+-gpo выдает объекты групповой политики в XML и HTML для последующего анализа
+-uperms проверяет общие проблемы с разрешениями OU
+-laps проверяет, установлен ли LAPS
+-authpolsilos проверяет наличие политик и хранилищ аутентификации
+-all запускает все проверки, например AdAudit.ps1 -all
